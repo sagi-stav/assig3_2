@@ -36,17 +36,17 @@ public class HeavyWorker {
         /* section2() can be called from one thread out of the 3 above    */
         section2.down();
         section2();
-        section1.up();
         section2.up();
+        section1.up();
         workB.up();
     }
 
     public void workB() {
         workB.down();
-        section2.down();
+        //section2.down();
         /* this will be printed only after workA() done at least once */
         System.out.println(Thread.currentThread().getName() + " doing workB");
-        section2.up();
+        //section2.up();
         workB.up();
 
     }
